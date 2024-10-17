@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BudgetBuddy</string>
+    <string name="budget_buddy_1">Электронная почта</string>
+    <string name="budget_buddy_2">Отправить код</string>
 </resources>

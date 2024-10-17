@@ -16,12 +16,19 @@ class MainActivityModel(
     val activityFlagLive: LiveData<MainActivityFlag> get() = mutableActivityFlag
 
     init {
+        if (!saved.contains("access_token")) {
+            mutableActivityFlag.value = MainActivityFlag.NEED_TO_LOGIN
+        }
+        else {
 
+        }
     }
+
 
     override fun onCleared() {
         super.onCleared()
         requester.cancelAll("MainActivityModel")
     }
+
 
 }
