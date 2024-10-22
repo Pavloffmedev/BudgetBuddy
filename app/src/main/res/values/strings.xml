@@ -5,6 +5,7 @@
     <string name="budget_buddy_3">Полученный код</string>
     <string name="budget_buddy_4">Мы отправили проверочный код на %1$s. Письмо может попасть в папку Спам</string>
     <string name="budget_buddy_5">Для использования приложения авторизуйтесь</string>
+    <string name="budget_buddy_6">Код не подходит</string>
 
 
     <string name="budget_buddy_confirm">Подтвердить</string>

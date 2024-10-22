@@ -13,7 +13,6 @@
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/splashBackgroundAnimation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
@@ -38,10 +37,11 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="10dp"
+            android:focusable="true"
+            android:clickable="true"
             android:visibility="gone">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/splashAnimation"
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
                 app:lottie_autoPlay="true"
@@ -60,7 +60,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/budget_buddy_1" />
+                    android:hint="@string/budget_buddy_1"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,8 +79,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:layout_marginEnd="17dp"
+            android:animateLayoutChanges="true"
             android:background="@drawable/button"
             android:gravity="center"
+            android:focusable="true"
+            android:clickable="true"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -112,7 +115,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/budget_buddy_3" />
+                    android:hint="@string/budget_buddy_3"
+                    android:inputType="number"
+                    android:maxLength="6" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

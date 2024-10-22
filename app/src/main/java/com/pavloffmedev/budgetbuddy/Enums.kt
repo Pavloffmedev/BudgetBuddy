@@ -5,5 +5,5 @@ enum class MainActivityFlag {
 }
 
 enum class LoginActivityFlags {
-    EMAIL_NEED, CODE_NEED, INVALID_CODE
+    EMAIL_NEED, CODE_NEED, INVALID_CODE, SUCCESS_AUTH
 }
