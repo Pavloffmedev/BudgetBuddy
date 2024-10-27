@@ -7,6 +7,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.pavloffmedev.budgetbuddy.databinding.ActivityMainBinding
 import com.pavloffmedev.budgetbuddy.viewmodelfactories.MainActivityModelFactory
 import com.pavloffmedev.budgetbuddy.viewmodels.MainActivityModel
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         subscribe()
+        views()
     }
 
 
@@ -37,5 +40,11 @@ class MainActivity : AppCompatActivity() {
                 else -> {}
             }
         }
+    }
+
+
+    private fun views() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_general)
+        binding.navView.setupWithNavController(navController)
     }
 }

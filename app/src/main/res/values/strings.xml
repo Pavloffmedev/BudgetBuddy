@@ -7,6 +7,14 @@
     <string name="budget_buddy_5">Для использования приложения авторизуйтесь</string>
     <string name="budget_buddy_6">Код не подходит</string>
 
+    <string name="budget_buddy_7">Главная</string>
+    <string name="budget_buddy_8">Статистика</string>
+    <string name="budget_buddy_9">Настройки</string>
+
 
     <string name="budget_buddy_confirm">Подтвердить</string>
+    <string name="title_activity_general">GeneralActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
