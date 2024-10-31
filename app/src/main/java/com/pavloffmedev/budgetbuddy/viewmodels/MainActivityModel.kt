@@ -20,7 +20,7 @@ class MainActivityModel(
             mutableActivityFlag.value = MainActivityFlag.NEED_TO_LOGIN
         }
         else {
-            mutableActivityFlag.value = MainActivityFlag.NEED_START_SETTINGS
+            mutableActivityFlag.value = MainActivityFlag.LOADING
         }
     }
 
