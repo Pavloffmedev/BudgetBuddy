@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity() {
 
                 MainActivityFlag.ADVERTISING -> {}
 
+                MainActivityFlag.NEED_START_SETTINGS -> {
+                    binding.startSettingsLay.startAnimationOpenLayout()
+                }
+
                 else -> {}
             }
         }
@@ -46,5 +50,6 @@ class MainActivity : AppCompatActivity() {
     private fun views() {
         val navController = findNavController(R.id.nav_host_fragment_activity_general)
         binding.navView.setupWithNavController(navController)
+        binding.startSettingsLay.visible(false)
     }
 }

@@ -1,7 +1,7 @@
 package com.pavloffmedev.budgetbuddy
 
 enum class MainActivityFlag {
-    NEED_TO_LOGIN, ADVERTISING
+    NEED_TO_LOGIN, ADVERTISING, NEED_START_SETTINGS
 }
 
 enum class LoginActivityFlags {

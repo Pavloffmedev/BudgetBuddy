@@ -11,7 +11,13 @@
     <string name="budget_buddy_8">Статистика</string>
     <string name="budget_buddy_9">Настройки</string>
 
+    <string name="budget_buddy_10">Добавить расходы</string>
+    <string name="budget_buddy_11">Требуется настройка</string>
+    <string name="budget_buddy_12">Укажите некоторые данные, требуемые для работы приложения</string>
+    <string name="budget_buddy_13">Ваше имя</string>
+    <string name="budget_buddy_14">Допустимые траты в месяц</string>
 
+    <string name="budget_buddy_loading">Загрузка…</string>
     <string name="budget_buddy_confirm">Подтвердить</string>
     <string name="title_activity_general">GeneralActivity</string>
     <string name="title_home">Home</string>
