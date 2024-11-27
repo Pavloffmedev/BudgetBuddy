@@ -17,11 +17,20 @@
     <string name="budget_buddy_13">Ваше имя</string>
     <string name="budget_buddy_14">Допустимые траты в месяц</string>
     <string name="budget_buddy_15">Подгружаем данные…</string>
+    <string name="budget_buddy_16">Сумма трат</string>
 
     <string name="budget_buddy_loading">Загрузка…</string>
     <string name="budget_buddy_confirm">Подтвердить</string>
+    <string name="budget_buddy_add">Добавить</string>
+    <string name="budget_buddy_cancel">Отменить</string>
     <string name="title_activity_general">GeneralActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="budget_buddy_category_1">Еда и напитки</string>
+    <string name="budget_buddy_category_2">Транспорт</string>
+    <string name="budget_buddy_category_3">Коммунальные услуги</string>
+    <string name="budget_buddy_category_4">Развлечения и досуг</string>
+    <string name="budget_buddy_category_5">Здоровье</string>
+    <string name="budget_buddy_category_6">Одежда</string>
+    <string name="budget_buddy_category_7">Образование</string>
+
 </resources>

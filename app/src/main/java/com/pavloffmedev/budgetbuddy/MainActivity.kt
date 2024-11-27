@@ -2,18 +2,22 @@ package com.pavloffmedev.budgetbuddy
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.View.GONE
+import android.view.View.OnClickListener
+import android.view.View.VISIBLE
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.pavloffmedev.budgetbuddy.databinding.ActivityMainBinding
 import com.pavloffmedev.budgetbuddy.viewmodelfactories.MainActivityModelFactory
 import com.pavloffmedev.budgetbuddy.viewmodels.MainActivityModel
+import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnClickListener {
 
     private val vm: MainActivityModel by viewModels { MainActivityModelFactory(this) }
     private lateinit var binding: ActivityMainBinding
@@ -43,12 +47,25 @@ class MainActivity : AppCompatActivity() {
                     binding.startSettingsLay.startAnimationOpenLayout()
                 }
 
-                MainActivityFlag.LOADING -> {
-                    binding.startSettingsLay.visible(false)
-                    binding.loadingLay.startAnimationOpenLayout()
-                }
-
                 else -> {}
+            }
+        }
+
+        vm.addWastesVisibilityLive.observe(this) {
+            if (it) {
+                binding.addWastesLay.startAnimationOpenLayout()
+            }
+            else {
+                binding.addWastesLay.startAnimationCloseLayout()
+            }
+        }
+
+        vm.loadingVisibilityLive.observe(this) {
+            if (it) {
+                binding.loadingLay.startAnimationOpenLayout()
+            }
+            else {
+                binding.loadingLay.startAnimationCloseLayout()
             }
         }
     }
@@ -59,5 +76,24 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
         binding.startSettingsLay.visible(false)
         binding.loadingLay.visible(false)
+
+        lifecycleScope.launch {
+            listOf(binding.addAddWastesButton, binding.cancelAddWastesButton).forEach { view ->
+                view.setOnClickListener(this@MainActivity)
+            }
+        }
+
+    }
+
+    override fun onClick(view: View) {
+        when(view.id) {
+            R.id.cancelAddWastesButton -> {
+                vm.changeAddWastesLayVisibility(false)
+            }
+
+            R.id.addAddWastesButton -> {
+
+            }
+        }
     }
 }

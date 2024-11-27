@@ -41,6 +41,7 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:id="@+id/loadingLay"
         android:layout_width="match_parent"
@@ -50,6 +51,7 @@
         android:focusable="true"
         android:gravity="center"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,9 +67,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/budget_buddy_15" />
+            android:text="@string/budget_buddy_15"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,6 +153,136 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/budget_buddy_confirm" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addWastesLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="17dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusBottomEnd="18dp"
+            app:boxCornerRadiusBottomStart="18dp"
+            app:boxCornerRadiusTopEnd="18dp"
+            app:boxCornerRadiusTopStart="18dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/budget_buddy_16"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="14dp"
+            app:singleSelection="true">
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip1"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_1"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip2"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_2"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip3"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_3"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip4"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_4"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip5"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_5"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip6"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_6"
+                app:chipCornerRadius="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/categoryChip7"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/budget_buddy_category_7"
+                app:chipCornerRadius="18dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancelAddWastesButton"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:text="@string/budget_buddy_cancel" />
+
+            <Button
+                android:id="@+id/addAddWastesButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="@string/budget_buddy_add" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

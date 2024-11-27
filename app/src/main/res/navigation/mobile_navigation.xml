@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.pavloffmedev.budgetbuddy.ui.HomeFragment"
-        android:label="@string/title_home"
+        android:label="@string/budget_buddy_7"
         tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -20,6 +20,6 @@
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.pavloffmedev.budgetbuddy.ui.SettingsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/budget_buddy_8"
         tools:layout="@layout/fragment_settings" />
 </navigation>
