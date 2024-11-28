@@ -62,12 +62,20 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         }
 
         vm.loadingVisibilityLive.observe(this) {
-            Toast.makeText(this, "Test $it", Toast.LENGTH_SHORT).show()
             if (it) {
                 binding.loadingLay.startAnimationOpenLayout()
             }
             else {
                 binding.loadingLay.startAnimationCloseLayout()
+            }
+        }
+
+        vm.needStartSettingsVisibilityLive.observe(this) {
+            if (it) {
+                binding.startSettingsLay.startAnimationOpenLayout()
+            }
+            else {
+                binding.startSettingsLay.startAnimationCloseLayout()
             }
         }
     }
@@ -94,7 +102,24 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             }
 
             R.id.addAddWastesButton -> {
+                val nameInputted = binding.nameField.editText?.text.toString()
+                val monthLimitInputted = binding.wastesField.editText?.text.toString().toIntOrNull()
 
+                if (nameInputted.isEmpty()) {
+                    binding.nameField.error = getString(R.string.budget_buddy_17)
+                    return
+                }
+                else {
+                    binding.nameField.error = null
+                }
+
+                if (monthLimitInputted == null) {
+                    binding.wastesField.error = getString(R.string.budget_buddy_17)
+                    return
+                }
+                else {
+                    binding.wastesField.error = null
+                }
             }
         }
     }

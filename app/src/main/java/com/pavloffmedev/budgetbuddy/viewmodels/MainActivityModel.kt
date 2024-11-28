@@ -32,6 +32,9 @@ class MainActivityModel(
     private val mutableLoadingVisibility = MutableLiveData(false)
     val loadingVisibilityLive : LiveData<Boolean> get() = mutableLoadingVisibility
 
+    private val mutableNeedStartSettingsVisibility = MutableLiveData(false)
+    val needStartSettingsVisibilityLive : LiveData<Boolean> get() = mutableNeedStartSettingsVisibility
+
     private val accessToken by lazy { saved.getString("access_token", "").toString() }
 
     init {
@@ -40,6 +43,7 @@ class MainActivityModel(
         }
         else {
             mutableLoadingVisibility.value = true
+
             getUserData()
         }
     }
@@ -72,15 +76,43 @@ class MainActivityModel(
         val stringRequest: StringRequest = object : StringRequest(
             Method.POST, Urls.GET_USER_DATA,
             {
-                val decoder = Json { ignoreUnknownKeys = true }
-                mutableUser.value = decoder.decodeFromString(it)
+                if (it != "need_start_settings") {
+                    val decoder = Json { ignoreUnknownKeys = true }
+                    mutableUser.value = decoder.decodeFromString(it)
 
-                mutableLoadingVisibility.value = false
+                    mutableLoadingVisibility.value = false
+                }
+                else {
+                    mutableLoadingVisibility.value = false
+                    mutableNeedStartSettingsVisibility.value = true
+                }
             }, null
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
                 params["access_token"] = accessToken
+                return params
+            }
+        }
+        requester.add(stringRequest).tag = "MainActivity"
+    }
+
+
+    /**
+     * Установить начальные настройки
+     */
+    fun postStartSettings(name: String, monthLimit : Int) {
+        val stringRequest: StringRequest = object : StringRequest(
+            Method.POST, Urls.APPLY_START_SETTINGS,
+            {
+                getUserData()
+            }, null
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["access_token"] = accessToken
+                params["name"] = name
+                params["month_limit"] = monthLimit.toString()
                 return params
             }
         }
