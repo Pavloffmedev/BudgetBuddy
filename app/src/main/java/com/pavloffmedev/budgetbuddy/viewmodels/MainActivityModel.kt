@@ -1,6 +1,7 @@
 package com.pavloffmedev.budgetbuddy.viewmodels
 
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,8 @@ class MainActivityModel(
 
     private val mutableActivityFlag = MutableLiveData<MainActivityFlag>()
     val activityFlagLive: LiveData<MainActivityFlag> get() = mutableActivityFlag
+
+    private var currencySymbol = "₽"
 
     private val mutableAddWastesVisibility = MutableLiveData(false)
     val addWastesVisibilityLive: LiveData<Boolean> get() = mutableAddWastesVisibility
@@ -46,6 +49,12 @@ class MainActivityModel(
         super.onCleared()
         requester.cancelAll("MainActivityModel")
     }
+
+
+    /**
+     * Получить строку средств с символом валюты
+     */
+    fun getCurrencyCount(sum : Double): String = "$currencySymbol $sum"
 
 
     /**

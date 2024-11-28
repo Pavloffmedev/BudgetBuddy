@@ -26,6 +26,7 @@ class HomeFragment : Fragment(), OnClickListener {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         views()
+        subscribe()
 
         return binding.root
     }
@@ -46,6 +47,13 @@ class HomeFragment : Fragment(), OnClickListener {
     private fun views() {
         listOf(binding.addWastesButton).forEach { view ->
             view.setOnClickListener(this)
+        }
+    }
+
+    private fun subscribe() {
+        vm.userLive.observe(this.viewLifecycleOwner) { user ->
+            binding.monthWastesText.text = vm.getCurrencyCount(user.monthWastes)
+            binding.monthMoneyRemaining.text = vm.getCurrencyCount(user.monthMoneyRemaining)
         }
     }
 }

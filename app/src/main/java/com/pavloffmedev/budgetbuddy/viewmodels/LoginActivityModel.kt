@@ -80,7 +80,7 @@ class LoginActivityModel(
             {
                 val data = JSONObject(it)
                 if (data["result"] == "success") {
-                    saved.edit().putString("access_token", it).apply()
+                    saved.edit().putString("access_token", data.getString("access_token")).apply()
                     mutableActivityFlags.value = LoginActivityFlags.SUCCESS_AUTH
                 }
                 else if (data.has("error") && data["error"] == "email or code is invalid") {
