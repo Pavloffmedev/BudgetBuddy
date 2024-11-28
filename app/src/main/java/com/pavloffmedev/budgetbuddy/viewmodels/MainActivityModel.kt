@@ -59,6 +59,7 @@ class MainActivityModel(
      * Получить строку средств с символом валюты
      */
     fun getCurrencyCount(sum : Double): String = "$currencySymbol $sum"
+    fun getCurrencyCount(sum : Int): String = "$currencySymbol $sum"
 
 
     /**
@@ -102,11 +103,11 @@ class MainActivityModel(
      * Установить начальные настройки
      */
     fun postStartSettings(name: String, monthLimit : Int) {
+        mutableNeedStartSettingsVisibility.value = false
+        mutableLoadingVisibility.value = true
         val stringRequest: StringRequest = object : StringRequest(
             Method.POST, Urls.APPLY_START_SETTINGS,
-            {
-                getUserData()
-            }, null
+            { getUserData() }, { getUserData() }
         ) {
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()

@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding.loadingLay.visible(false)
 
         lifecycleScope.launch {
-            listOf(binding.addAddWastesButton, binding.cancelAddWastesButton).forEach { view ->
+            listOf(binding.addAddWastesButton, binding.cancelAddWastesButton, binding.confirmStart).forEach { view ->
                 view.setOnClickListener(this@MainActivity)
             }
         }
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 vm.changeAddWastesLayVisibility(false)
             }
 
-            R.id.addAddWastesButton -> {
+            R.id.confirmStart -> {
                 val nameInputted = binding.nameField.editText?.text.toString()
                 val monthLimitInputted = binding.wastesField.editText?.text.toString().toIntOrNull()
 
@@ -120,6 +120,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 else {
                     binding.wastesField.error = null
                 }
+
+                vm.postStartSettings(nameInputted, monthLimitInputted)
             }
         }
     }
