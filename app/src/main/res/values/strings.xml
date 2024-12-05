@@ -19,6 +19,10 @@
     <string name="budget_buddy_15">Подгружаем данные…</string>
     <string name="budget_buddy_16">Сумма трат</string>
     <string name="budget_buddy_17">Обязательное поле</string>
+    <string name="budget_buddy_18">Статистика</string>
+    <string name="budget_buddy_19">7 дней</string>
+    <string name="budget_buddy_20">14 дней</string>
+    <string name="budget_buddy_21">30 дней</string>
 
     <string name="budget_buddy_loading">Загрузка…</string>
     <string name="budget_buddy_confirm">Подтвердить</string>

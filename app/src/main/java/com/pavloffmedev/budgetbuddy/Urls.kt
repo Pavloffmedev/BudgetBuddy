@@ -7,4 +7,5 @@ object Urls {
     const val CONFIRM_CODE = "$DOMAIN/account/validate_code.php"
     const val GET_USER_DATA = "$DOMAIN/account/get_user_data.php"
     const val APPLY_START_SETTINGS = "$DOMAIN/settings/apply_start_settings.php"
+    const val ADD_WASTES = "$DOMAIN/balance/add_wastes.php"
 }

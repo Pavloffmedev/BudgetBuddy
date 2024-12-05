@@ -121,4 +121,25 @@ class MainActivityModel(
     }
 
 
+    /**
+     * Сохранить новую трату
+     */
+    fun postWasteData(sum : Int, categoryId: Int) {
+        mutableAddWastesVisibility.value = false
+        val stringRequest: StringRequest = object : StringRequest(
+            Method.POST, Urls.ADD_WASTES,
+            { getUserData() }, { getUserData() }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["access_token"] = accessToken
+                params["sum"] = sum.toString()
+                params["category_id"] = (categoryId + 1).toString()
+                return params
+            }
+        }
+        requester.add(stringRequest).tag = "MainActivity"
+    }
+
+
 }

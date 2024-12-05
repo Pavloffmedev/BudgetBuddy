@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/windowBackground"
+    android:background="@color/background"
     android:paddingTop="?attr/actionBarSize"
     tools:context=".MainActivity">
 
@@ -173,6 +173,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addWastesField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxCornerRadiusBottomEnd="18dp"
@@ -188,9 +189,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/addWastesCategoriesChipGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
+            android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             app:singleSelection="true">
 
@@ -201,6 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
+                android:checked="true"
                 android:text="@string/budget_buddy_category_1"
                 app:chipCornerRadius="18dp" />
 

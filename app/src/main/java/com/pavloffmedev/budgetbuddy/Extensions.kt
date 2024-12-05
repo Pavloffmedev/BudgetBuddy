@@ -5,7 +5,22 @@ import android.content.Context
 import android.view.View
 import android.view.animation.OvershootInterpolator
 import android.view.inputmethod.InputMethodManager
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import java.util.regex.Pattern
+
+/**
+ * Вернет -1, если не выбрано
+ */
+fun ChipGroup.getCheckedIndex(): Int {
+    val checkedId = this.checkedChipId
+    return if (checkedId == View.NO_ID) {
+        -1
+    }
+    else {
+        this.indexOfChild(findViewById<Chip>(checkedChipId))
+    }
+}
 
 
 /**

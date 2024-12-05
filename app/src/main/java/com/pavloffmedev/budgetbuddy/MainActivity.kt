@@ -3,10 +3,7 @@ package com.pavloffmedev.budgetbuddy
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
 import android.view.View.OnClickListener
-import android.view.View.VISIBLE
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -99,6 +96,22 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         when(view.id) {
             R.id.cancelAddWastesButton -> {
                 vm.changeAddWastesLayVisibility(false)
+            }
+
+            R.id.addAddWastesButton -> {
+                val wastesSum = binding.addWastesField.editText?.text.toString().toIntOrNull()
+
+                if (wastesSum == null) {
+                    binding.addWastesField.error = getString(R.string.budget_buddy_17)
+                    return
+                }
+                else {
+                    binding.addWastesField.error = null
+                }
+
+                vm.postWasteData(wastesSum, binding.addWastesCategoriesChipGroup.getCheckedIndex())
+                binding.addWastesField.editText?.text = null
+                binding.addWastesCategoriesChipGroup.check(R.id.categoryChip1)
             }
 
             R.id.confirmStart -> {
