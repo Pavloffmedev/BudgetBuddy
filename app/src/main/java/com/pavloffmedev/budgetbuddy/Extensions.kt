@@ -7,7 +7,38 @@ import android.view.animation.OvershootInterpolator
 import android.view.inputmethod.InputMethodManager
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 import java.util.regex.Pattern
+
+/**
+ * Преобразование SQL datetime в формат "Сегодня, 12:12"
+ */
+fun String.formatTime(todayText: String, yesterdayText: String): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    val outputFormatTime = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val outputFormatDate = SimpleDateFormat("dd MMMM", Locale.getDefault())
+
+    val transactionDate = inputFormat.parse(this) ?: return this
+    val currentDate = Calendar.getInstance()
+
+    val transactionCalendar = Calendar.getInstance().apply {
+        time = transactionDate
+    }
+
+    return when {
+        currentDate.get(Calendar.YEAR) == transactionCalendar.get(Calendar.YEAR) &&
+                currentDate.get(Calendar.DAY_OF_YEAR) == transactionCalendar.get(Calendar.DAY_OF_YEAR) ->
+            "$todayText, ${outputFormatTime.format(transactionDate)}"
+
+        currentDate.get(Calendar.YEAR) == transactionCalendar.get(Calendar.YEAR) &&
+                currentDate.get(Calendar.DAY_OF_YEAR) - transactionCalendar.get(Calendar.DAY_OF_YEAR) == 1 ->
+            "$yesterdayText, ${outputFormatTime.format(transactionDate)}"
+
+        else -> "${outputFormatDate.format(transactionDate)}, ${outputFormatTime.format(transactionDate)}"
+    }
+}
 
 /**
  * Вернет -1, если не выбрано

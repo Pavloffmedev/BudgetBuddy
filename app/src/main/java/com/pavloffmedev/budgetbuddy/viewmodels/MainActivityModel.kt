@@ -8,7 +8,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.pavloffmedev.budgetbuddy.MainActivityFlag
 import com.pavloffmedev.budgetbuddy.Urls
-import com.pavloffmedev.budgetbuddy.`object`.User
+import com.pavloffmedev.budgetbuddy.objects.User
 import kotlinx.serialization.json.Json
 import java.util.HashMap
 

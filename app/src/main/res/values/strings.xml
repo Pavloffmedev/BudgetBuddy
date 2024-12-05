@@ -23,6 +23,8 @@
     <string name="budget_buddy_19">7 дней</string>
     <string name="budget_buddy_20">14 дней</string>
     <string name="budget_buddy_21">30 дней</string>
+    <string name="budget_buddy_22">Сегодня</string>
+    <string name="budget_buddy_23">Вчера</string>
 
     <string name="budget_buddy_loading">Загрузка…</string>
     <string name="budget_buddy_confirm">Подтвердить</string>

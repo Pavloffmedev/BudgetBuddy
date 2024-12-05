@@ -1,4 +1,4 @@
-package com.pavloffmedev.budgetbuddy.`object`
+package com.pavloffmedev.budgetbuddy.objects
 
 import kotlinx.serialization.Serializable
 
