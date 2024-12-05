@@ -1,7 +1,6 @@
 package com.pavloffmedev.budgetbuddy.viewmodels
 
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,7 +8,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.pavloffmedev.budgetbuddy.MainActivityFlag
 import com.pavloffmedev.budgetbuddy.Urls
-import com.pavloffmedev.budgetbuddy.objects.User
+import com.pavloffmedev.budgetbuddy.`object`.User
 import kotlinx.serialization.json.Json
 import java.util.HashMap
 
