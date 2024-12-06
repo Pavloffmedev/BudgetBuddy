@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pavloffmedev.budgetbuddy.R
 import com.pavloffmedev.budgetbuddy.adapters.WasteAdapter
 import com.pavloffmedev.budgetbuddy.databinding.FragmentStatsBinding
+import com.pavloffmedev.budgetbuddy.getCheckedIndex
 import com.pavloffmedev.budgetbuddy.viewmodelfactories.MainActivityModelFactory
 import com.pavloffmedev.budgetbuddy.viewmodels.MainActivityModel
 
@@ -39,6 +40,9 @@ class StatsFragment : Fragment() {
 
     private fun views() {
         binding.wasteList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.filterGroup.setOnCheckedStateChangeListener { _, _ ->
+            vm.setDaysFilter(binding.filterGroup.getCheckedIndex())
+        }
     }
 
     private fun subscribe() {

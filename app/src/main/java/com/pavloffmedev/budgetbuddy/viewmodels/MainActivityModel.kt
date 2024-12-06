@@ -41,6 +41,8 @@ class MainActivityModel(
 
     private val accessToken by lazy { saved.getString("access_token", "").toString() }
 
+    private var filterIndex = 0
+
     init {
         if (!saved.contains("access_token")) {
             mutableActivityFlag.value = MainActivityFlag.NEED_TO_LOGIN
@@ -63,6 +65,15 @@ class MainActivityModel(
      * Вызывается во время инициализации фрагмента StatsFragment
      */
     fun onCreateStatsFragment() {
+        getWasteListData()
+    }
+
+
+    /**
+     * Установка фильтра по времени в списке трат
+     */
+    fun setDaysFilter(daysFilterIndex: Int) {
+        filterIndex = daysFilterIndex
         getWasteListData()
     }
 
@@ -125,6 +136,7 @@ class MainActivityModel(
             override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
                 params["access_token"] = accessToken
+                params["filter_index"] = filterIndex.toString()
                 return params
             }
         }
