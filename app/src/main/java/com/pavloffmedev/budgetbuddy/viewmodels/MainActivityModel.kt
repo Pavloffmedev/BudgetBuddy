@@ -9,7 +9,9 @@ import com.android.volley.toolbox.StringRequest
 import com.pavloffmedev.budgetbuddy.MainActivityFlag
 import com.pavloffmedev.budgetbuddy.Urls
 import com.pavloffmedev.budgetbuddy.objects.User
+import com.pavloffmedev.budgetbuddy.objects.Waste
 import kotlinx.serialization.json.Json
+import java.util.ArrayList
 import java.util.HashMap
 
 class MainActivityModel(
@@ -34,6 +36,9 @@ class MainActivityModel(
     private val mutableNeedStartSettingsVisibility = MutableLiveData(false)
     val needStartSettingsVisibilityLive : LiveData<Boolean> get() = mutableNeedStartSettingsVisibility
 
+    private val mutableWasteList = MutableLiveData<ArrayList<Waste>>()
+    val wasteList: LiveData<ArrayList<Waste>> get() = mutableWasteList
+
     private val accessToken by lazy { saved.getString("access_token", "").toString() }
 
     init {
@@ -51,6 +56,14 @@ class MainActivityModel(
     override fun onCleared() {
         super.onCleared()
         requester.cancelAll("MainActivityModel")
+    }
+
+
+    /**
+     * Вызывается во время инициализации фрагмента StatsFragment
+     */
+    fun onCreateStatsFragment() {
+        getWasteListData()
     }
 
 
@@ -86,6 +99,27 @@ class MainActivityModel(
                     mutableLoadingVisibility.value = false
                     mutableNeedStartSettingsVisibility.value = true
                 }
+            }, null
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params: MutableMap<String, String> = HashMap()
+                params["access_token"] = accessToken
+                return params
+            }
+        }
+        requester.add(stringRequest).tag = "MainActivity"
+    }
+
+
+    /**
+     * Получить список трат
+     */
+    private fun getWasteListData() {
+        val stringRequest: StringRequest = object : StringRequest(
+            Method.POST, Urls.GET_WASTE_LIST_DATA,
+            {
+                val decoder = Json { ignoreUnknownKeys = true }
+                mutableWasteList.value = decoder.decodeFromString<ArrayList<Waste>>(it)
             }, null
         ) {
             override fun getParams(): Map<String, String> {

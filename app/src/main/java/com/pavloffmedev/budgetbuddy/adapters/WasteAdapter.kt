@@ -24,8 +24,7 @@ class WasteAdapter(
 
             wasteSumText.text = "- ${data.sum} $currency"
             wasteTimeText.text = data.time.formatTime(todayText, yesterdayTex)
-
-            //TODO Сделать отображение категорий
+            wasteCategoryText.text = data.categoryName
         }
     }
 
