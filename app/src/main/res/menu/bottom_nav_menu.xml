@@ -11,9 +11,9 @@
         android:icon="@drawable/leaderboard_animated"
         android:title="@string/budget_buddy_8" />
 
-    <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/settings_animated"
-        android:title="@string/budget_buddy_9" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_settings"-->
+<!--        android:icon="@drawable/settings_animated"-->
+<!--        android:title="@string/budget_buddy_9" />-->
 
 </menu>

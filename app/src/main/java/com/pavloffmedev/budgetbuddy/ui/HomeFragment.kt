@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -78,6 +77,7 @@ class HomeFragment : Fragment(), OnClickListener {
 
 
                     val dataSet = PieDataSet(entries, "")
+                    //TODO заменить на другие цвета
                     dataSet.colors = ColorTemplate.MATERIAL_COLORS.asList()
                     dataSet.sliceSpace = 3f
                     dataSet.valueTextColor = MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorOnSurface, "")
