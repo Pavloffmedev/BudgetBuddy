@@ -1,10 +1,13 @@
 package com.pavloffmedev.budgetbuddy
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.view.inputmethod.InputMethodManager
+import android.widget.ProgressBar
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import java.text.SimpleDateFormat
@@ -51,6 +54,20 @@ fun ChipGroup.getCheckedIndex(): Int {
     else {
         this.indexOfChild(findViewById<Chip>(checkedChipId))
     }
+}
+
+
+fun ProgressBar.animateTo(progressTo: Int, startDelay: Long = 0, duration: Long = 500) {
+    val animation = ObjectAnimator.ofInt(
+        this,
+        "progress",
+        this.progress,
+        progressTo * 1000
+    )
+    animation.duration = duration
+    animation.interpolator = DecelerateInterpolator()
+    animation.startDelay = startDelay
+    animation.start()
 }
 
 

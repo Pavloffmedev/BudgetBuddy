@@ -25,6 +25,9 @@
     <string name="budget_buddy_21">30 дней</string>
     <string name="budget_buddy_22">Сегодня</string>
     <string name="budget_buddy_23">Вчера</string>
+    <string name="budget_buddy_24">Расходы</string>
+    <string name="budget_buddy_25">Остаток на мес</string>
+    <string name="budget_buddy_26">По категориям</string>
 
     <string name="budget_buddy_loading">Загрузка…</string>
     <string name="budget_buddy_confirm">Подтвердить</string>

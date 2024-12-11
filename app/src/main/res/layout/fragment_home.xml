@@ -6,56 +6,130 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    android:paddingTop="17dp"
+
     tools:context=".ui.HomeFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/balanceCard"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:checkable="false"
-        android:clickable="false"
-        android:focusable="true">
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/budget_buddy_7"
+        android:textSize="20sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/monthWastesText"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/wasteCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:checkable="false"
+            android:clickable="false"
+            android:focusable="true">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/budget_buddy_loading"
-                android:textSize="20sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <TextView
-                android:id="@+id/monthMoneyRemaining"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/budget_buddy_loading"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/totalWasteText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/budget_buddy_loading"
+                    android:textSize="20sp" />
 
-            <Button
-                android:id="@+id/addWastesButton"
-                android:layout_width="wrap_content"
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/budget_buddy_24"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/addWastesButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/budget_buddy_10"
+                    app:icon="@drawable/assured_workload" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/balanceCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:checkable="false"
+            android:clickable="false"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/budget_buddy_10"
-                app:icon="@drawable/assured_workload" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/balanceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/budget_buddy_loading"
+                    android:textSize="20sp" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/budget_buddy_25"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/balanceProgressBar"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:max="100000"
+                    app:trackCornerRadius="15dp"
+                    app:trackThickness="10dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/budget_buddy_26"
+        android:textSize="20sp" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
-        android:layout_height="215dp"
+        android:layout_height="225dp"
         android:layout_marginTop="8dp" />
 </LinearLayout>

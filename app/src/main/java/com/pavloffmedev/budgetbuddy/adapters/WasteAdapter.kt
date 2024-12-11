@@ -45,7 +45,7 @@ class WasteAdapter(
             "Еда и напитки" -> R.drawable.ic_eats
             "Транспорт" -> R.drawable.ic_transport
             "Коммунальные услуги" -> R.drawable.ic_comunal
-            "Развлечения и досуг" -> R.drawable.ic_dosug
+            "Развлечения" -> R.drawable.ic_dosug
             "Здоровье" -> R.drawable.ic_health
             "Одежда" -> R.drawable.ic_styler
             "Образование" -> R.drawable.ic_school

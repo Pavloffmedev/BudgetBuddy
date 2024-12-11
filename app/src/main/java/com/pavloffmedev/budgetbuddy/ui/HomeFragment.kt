@@ -7,15 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.color.MaterialColors
 import com.pavloffmedev.budgetbuddy.R
+import com.pavloffmedev.budgetbuddy.animateTo
 import com.pavloffmedev.budgetbuddy.databinding.FragmentHomeBinding
 import com.pavloffmedev.budgetbuddy.viewmodelfactories.MainActivityModelFactory
 import com.pavloffmedev.budgetbuddy.viewmodels.MainActivityModel
@@ -62,8 +65,10 @@ class HomeFragment : Fragment(), OnClickListener {
 
     private fun subscribe() {
         vm.userLive.observe(this.viewLifecycleOwner) { user ->
-            binding.monthWastesText.text = vm.getCurrencyCount(user.monthWastes)
-            binding.monthMoneyRemaining.text = vm.getCurrencyCount(user.monthMoneyRemaining)
+            binding.totalWasteText.text = vm.getCurrencyCount(user.monthWastes)
+            binding.balanceText.text = vm.getCurrencyCount(user.monthMoneyRemaining)
+
+            binding.balanceProgressBar.animateTo(user.balanceProgress)
 
             binding.pieChart.visible(false)
             user.monthStats?.let { monthStats ->
@@ -77,8 +82,8 @@ class HomeFragment : Fragment(), OnClickListener {
 
 
                     val dataSet = PieDataSet(entries, "")
-                    //TODO заменить на другие цвета
-                    dataSet.colors = ColorTemplate.MATERIAL_COLORS.asList()
+
+                    dataSet.colors = listOf(Color.parseColor("#10002b"), Color.parseColor("#240046"), Color.parseColor("#3c096c"), Color.parseColor("#5a189a"), Color.parseColor("#7b2cbf"), Color.parseColor("#9d4edd"), Color.parseColor("#c77dff"))
                     dataSet.sliceSpace = 3f
                     dataSet.valueTextColor = MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorOnSurface, "")
                     dataSet.valueTextSize = 12f
@@ -87,6 +92,7 @@ class HomeFragment : Fragment(), OnClickListener {
                     dataSet.valueLinePart1Length = 0.5f
                     dataSet.valueLinePart2Length = 0.4f
                     dataSet.valueLineColor = Color.TRANSPARENT
+                   
 
                     val pieData = PieData(dataSet)
                     binding.pieChart.data = pieData
@@ -97,6 +103,7 @@ class HomeFragment : Fragment(), OnClickListener {
                     binding.pieChart.setEntryLabelTypeface(Typeface.DEFAULT_BOLD)
                     binding.pieChart.setEntryLabelColor(MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorOnSurface, ""))
                     binding.pieChart.legend.isEnabled = false
+                    binding.pieChart.extraBottomOffset = 10f
                     binding.pieChart.animateY(500)
                 }
             }

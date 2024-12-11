@@ -8,5 +8,6 @@ data class User(
     val name: String? = null,
     val monthMoneyRemaining: Int,
     val monthWastes: Int,
-    val monthStats: ArrayList<WasteDataSet>? = null
+    val monthStats: ArrayList<WasteDataSet>? = null,
+    val balanceProgress: Int
 )
